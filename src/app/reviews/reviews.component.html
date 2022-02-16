@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="column">
+        <h2>Search</h2>
+        <div>
+            <div>Restaurant name:</div>
+            <input type="text" [(ngModel)]="reviewFilter.name" id="filter-name" placeholder="name">
+        </div>
+        <div>
+            <div>City:</div>
+            <input type="text" [(ngModel)]="reviewFilter.city" id="filter-city" placeholder="city">
+        </div>
+        <div>
+            <button (click)="getReviews();" type="button">Search</button>
+        </div>
+    </div>
+
+    <div class="column">
+        <h2>Results</h2>
+        <div class="card-stack">
+            <div class="card" *ngFor="let review of reviews">
+                <div class="card-title">{{review.name}}</div>
+                <div><span style="font-weight:bold">City:</span> {{review.city}}</div>
+                <div><span style="font-weight:bold">Karakter:</span> {{review.ratingString}} ({{review.rating}})</div>
+                <div><span style="font-weight:bold">Dato:</span> {{review.date | date:'yyyy-MM-dd'}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
